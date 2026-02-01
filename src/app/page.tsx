@@ -7,10 +7,30 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [age, setAge] = useState("");
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Supabaseに保存
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, age }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(data.error || "エラーが発生しました");
+      }
+    } catch {
+      setError("通信エラーが発生しました");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -237,11 +257,15 @@ export default function Home() {
                   <option value="60s">60代以上</option>
                 </select>
               </div>
+              {error && (
+                <p className="text-red-500 text-sm">{error}</p>
+              )}
               <button
                 type="submit"
-                className="w-full bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white px-8 py-4 rounded-xl text-lg font-medium transition-all duration-300 hover:shadow-lg"
+                disabled={loading}
+                className="w-full bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] disabled:opacity-50 text-white px-8 py-4 rounded-xl text-lg font-medium transition-all duration-300 hover:shadow-lg"
               >
-                事前登録する（無料）
+                {loading ? "送信中..." : "事前登録する（無料）"}
               </button>
               <p className="text-sm text-[var(--color-text-light)]">
                 ※ スパムは送りません。退会もいつでも可能です。
