@@ -35,6 +35,20 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-cream)]/80 backdrop-blur-md border-b border-[var(--color-cream-dark)]/50">
+        <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
+          <span className="font-serif text-xl text-[var(--color-warm-dark)]">よりそい</span>
+          <div className="flex items-center gap-6 text-sm">
+            <a href="/blog" className="text-[var(--color-text-light)] hover:text-[var(--color-warm)] transition-colors">ブログ</a>
+            <a href="/login" className="text-[var(--color-text-light)] hover:text-[var(--color-warm)] transition-colors">ログイン</a>
+            <a href="/signup" className="bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white px-4 py-2 rounded-full text-sm transition-all">
+              無料登録
+            </a>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden">
         {/* Background gradient */}
@@ -282,7 +296,12 @@ export default function Home() {
           <p className="text-sm">
             40代からの、新しい出会いのかたち
           </p>
-          <p className="text-xs mt-6">
+          <div className="flex gap-4 justify-center mt-4 text-xs">
+            <a href="/terms" className="hover:text-white/80 transition-colors">利用規約</a>
+            <a href="/privacy" className="hover:text-white/80 transition-colors">プライバシーポリシー</a>
+            <a href="/blog" className="hover:text-white/80 transition-colors">ブログ</a>
+          </div>
+          <p className="text-xs mt-4">
             © 2026 よりそい All rights reserved.
           </p>
         </div>
