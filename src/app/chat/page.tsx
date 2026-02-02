@@ -79,6 +79,9 @@ export default function ChatPage() {
     const userMessage: Message = { role: "user", content: messageText };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
+    // Reset textarea height
+    const textarea = document.querySelector("textarea");
+    if (textarea) textarea.style.height = "48px";
     setIsTyping(true);
     setShowQuickReplies(false);
 
@@ -208,7 +211,12 @@ export default function ChatPage() {
         <div className="max-w-3xl mx-auto flex gap-2 md:gap-3">
           <textarea
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => {
+              setInput(e.target.value);
+              // Auto-resize
+              e.target.style.height = "48px";
+              e.target.style.height = Math.min(e.target.scrollHeight, 128) + "px";
+            }}
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
                 e.preventDefault();
@@ -217,8 +225,8 @@ export default function ChatPage() {
             }}
             placeholder="なんでも話してください...（🎤音声入力もOK）"
             rows={1}
-            className="flex-1 px-4 md:px-5 py-3.5 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] text-[var(--color-text)] placeholder:text-[var(--color-text-light)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] text-base resize-none max-h-32 overflow-y-auto"
-            style={{ minHeight: "48px" }}
+            className="flex-1 px-4 md:px-5 py-3.5 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] text-[var(--color-text)] placeholder:text-[var(--color-text-light)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] text-base resize-none overflow-y-auto"
+            style={{ height: "48px", maxHeight: "128px" }}
           />
           <button
             onClick={() => handleSend()}

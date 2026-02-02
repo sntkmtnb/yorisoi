@@ -119,7 +119,10 @@ export default function MatchPage() {
           <a href="/" className="font-serif text-xl text-[var(--color-warm-dark)]">
             よりそい
           </a>
-          <p className="text-sm md:text-base text-[var(--color-text-light)]">今日の出会い</p>
+          <div className="flex items-center gap-4">
+            <p className="text-sm md:text-base text-[var(--color-text-light)]">今日の出会い</p>
+            <a href="/chat" className="text-sm text-[var(--color-warm)] hover:text-[var(--color-warm-dark)]">💬 AIと話す</a>
+          </div>
         </div>
       </header>
 
