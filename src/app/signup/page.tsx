@@ -143,11 +143,16 @@ export default function SignupPage() {
               </div>
               <button
                 onClick={() => setStep(2)}
-                disabled={!form.email || form.password.length < 8}
+                disabled={!form.email || !form.email.includes("@") || form.password.length < 8}
                 className="w-full bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] disabled:opacity-40 text-white py-4 rounded-xl text-lg transition-all"
               >
                 次へ
               </button>
+              {form.email && !form.email.includes("@") && (
+                <p className="text-sm text-[var(--color-accent)]">
+                  メールアドレスの形式を確認してください
+                </p>
+              )}
             </div>
           )}
 
@@ -171,11 +176,17 @@ export default function SignupPage() {
                   value={form.displayName}
                   onChange={(e) => setForm({ ...form, displayName: e.target.value })}
                   placeholder="お好きな名前でOK"
+                  maxLength={10}
                   className="w-full px-5 py-4 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] text-base"
                 />
-                <p className="text-xs text-[var(--color-text-light)] mt-1">
-                  ※ 本名でなくて構いません。相手に表示される名前です
-                </p>
+                <div className="flex justify-between items-center mt-1">
+                  <p className="text-xs text-[var(--color-text-light)]">
+                    ※ 本名でなくて構いません
+                  </p>
+                  <p className="text-xs text-[var(--color-text-light)]">
+                    {form.displayName.length}/10
+                  </p>
+                </div>
               </div>
               <div>
                 <p className="block text-sm text-[var(--color-text-light)] mb-2">性別</p>
