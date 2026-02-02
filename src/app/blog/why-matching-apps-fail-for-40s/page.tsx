@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ReadingProgress from "@/components/ReadingProgress";
 
 export const metadata: Metadata = {
   title: "40代がマッチングアプリで失敗する本当の理由 | よりそいブログ",
@@ -24,6 +25,7 @@ const jsonLd = {
 export default function Article() {
   return (
     <div className="min-h-screen bg-[var(--color-cream)]">
+      <ReadingProgress />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="bg-white border-b border-[var(--color-cream-dark)] px-6 py-4">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
