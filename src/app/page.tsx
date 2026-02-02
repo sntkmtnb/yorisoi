@@ -210,10 +210,16 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="text-center text-[var(--color-text-light)] text-lg md:text-xl mt-16 leading-relaxed">
-            それは、あなたのせいじゃない。<br />
-            <span className="text-[var(--color-warm)] font-medium">今のアプリが、あなたに合っていないだけ。</span>
-          </p>
+          <div className="text-center mt-16 space-y-4">
+            <p className="text-[var(--color-text-light)] text-lg md:text-xl leading-relaxed">
+              それは、あなたのせいじゃない。<br />
+              <span className="text-[var(--color-warm)] font-medium">今のアプリが、あなたに合っていないだけ。</span>
+            </p>
+            <p className="text-[var(--color-text-light)] text-base leading-relaxed">
+              40代で出会いを求めることは、恥ずかしいことじゃない。<br className="hidden md:block" />
+              むしろ、<span className="text-[var(--color-warm-dark)] font-medium">自分の人生を大切にしている証拠</span>です。
+            </p>
+          </div>
         </div>
       </section>
 
