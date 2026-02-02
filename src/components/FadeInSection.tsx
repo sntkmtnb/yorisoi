@@ -13,6 +13,13 @@ export default function FadeInSection({ children, className = "", delay = 0 }: F
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Respect prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
