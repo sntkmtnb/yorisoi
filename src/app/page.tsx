@@ -436,6 +436,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog Preview Section */}
+      <section className="py-16 px-6">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-serif text-2xl md:text-3xl text-center text-[var(--color-warm-dark)] mb-8">
+            読んで知る、40代からの出会い
+          </h2>
+          <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+            {[
+              {
+                href: "/blog/over-40-dating-guide",
+                title: "40代から始める出会い：失敗しない5つのステップ",
+                time: "5分",
+              },
+              {
+                href: "/blog/why-matching-apps-fail-for-40s",
+                title: "40代がマッチングアプリで失敗する本当の理由",
+                time: "4分",
+              },
+            ].map((article) => (
+              <a
+                key={article.href}
+                href={article.href}
+                className="block bg-white p-5 rounded-2xl hover:shadow-md transition-shadow"
+              >
+                <p className="text-sm text-[var(--color-text-light)] mb-1">📖 {article.time}で読めます</p>
+                <h3 className="text-base md:text-lg font-medium text-[var(--color-warm-dark)]">
+                  {article.title}
+                </h3>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Waitlist Section */}
       <section id="waitlist" className="py-24 px-6">
         <div className="max-w-xl mx-auto text-center">
