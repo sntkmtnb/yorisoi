@@ -80,7 +80,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-medium text-[var(--color-warm-dark)] mb-3">8. お問い合わせ</h2>
             <p>プライバシーに関するお問い合わせは、以下までご連絡ください：</p>
-            <p className="mt-2">メール: privacy@yorisoi.app</p>
+            <p className="mt-2">メール: privacy@yorisoi.love</p>
           </section>
         </div>
       </div>

@@ -8,7 +8,9 @@ export const metadata: Metadata = {
     title: "よりそい | 40代からの、新しい出会いのかたち",
     description: "AIがあなたの代わりに出会いを届ける。あなたは、感じるだけでいい。",
     type: "website",
+    url: "https://yorisoi.love",
   },
+  metadataBase: new URL("https://yorisoi.love"),
 };
 
 export default function RootLayout({
