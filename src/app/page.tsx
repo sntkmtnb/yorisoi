@@ -91,6 +91,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
+      {/* Skip to content (a11y) */}
+      <a href="#waitlist" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-[var(--color-warm)] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">
+        メインコンテンツへスキップ
+      </a>
+
       {/* Navigation */}
       <nav aria-label="メインナビゲーション" className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-cream)]/80 backdrop-blur-md border-b border-[var(--color-cream-dark)]/50">
         <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
