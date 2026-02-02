@@ -211,9 +211,20 @@ export default function Home() {
           <h2 className="font-serif text-3xl md:text-4xl text-center text-[var(--color-warm-dark)] mb-6">
             よりそいは、全く違うアプローチ
           </h2>
-          <p className="text-center text-[var(--color-text-light)] text-lg mb-16">
+          <p className="text-center text-[var(--color-text-light)] text-lg mb-6">
             あなたがやることは、AIと話すだけ。
           </p>
+
+          {/* Simple flow visualization */}
+          <div className="flex items-center justify-center gap-2 md:gap-4 mb-16 text-sm md:text-base overflow-x-auto">
+            <span className="bg-[var(--color-warm)] text-white px-3 py-1.5 rounded-full whitespace-nowrap">AIと会話</span>
+            <span className="text-[var(--color-warm-light)]">→</span>
+            <span className="bg-[var(--color-accent-soft)] text-[var(--color-warm-dark)] px-3 py-1.5 rounded-full whitespace-nowrap">プロフィール自動作成</span>
+            <span className="text-[var(--color-warm-light)]">→</span>
+            <span className="bg-[var(--color-accent-soft)] text-[var(--color-warm-dark)] px-3 py-1.5 rounded-full whitespace-nowrap">毎日1人紹介</span>
+            <span className="text-[var(--color-warm-light)]">→</span>
+            <span className="bg-[var(--color-warm)] text-white px-3 py-1.5 rounded-full whitespace-nowrap">出会い</span>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {[
