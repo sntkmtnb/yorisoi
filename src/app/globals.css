@@ -10,16 +10,38 @@
   --color-text-light: #7A6E62;
   --color-accent: #D4956A;
   --color-accent-soft: #E8C4A8;
+  --color-safe: #5B8C6A;
+  --color-safe-light: #E8F5EC;
 }
 
 body {
   font-family: 'Noto Sans JP', sans-serif;
   color: var(--color-text);
   background-color: var(--color-cream);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* 40代以上向け：老眼対応の読みやすいフォントサイズ */
+@media (max-width: 768px) {
+  body {
+    font-size: 17px;
+  }
 }
 
 .font-serif {
   font-family: 'Noto Serif JP', serif;
+}
+
+/* タップターゲット最小サイズ保証 */
+a, button, select, input[type="submit"] {
+  min-height: 44px;
+}
+
+/* フォーム要素の読みやすさ向上 */
+input, select, textarea {
+  font-size: 16px !important; /* iOS zoom防止 */
 }
 
 @keyframes fade-in-up {
@@ -59,4 +81,26 @@ body {
 
 .animate-pulse-soft {
   animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* スムーススクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* フォーカス可視性の改善（アクセシビリティ） */
+:focus-visible {
+  outline: 3px solid var(--color-warm-light);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* セレクトボックスの矢印を見やすく */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%237A6E62' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 20px;
+  padding-right: 40px;
 }

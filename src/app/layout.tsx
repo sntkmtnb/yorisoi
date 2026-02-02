@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "よりそい | 40代からの、新しい出会いのかたち",
-  description: "AIがあなたの代わりに出会いを届ける。あなたは、感じるだけでいい。40代からの出会い系サービス。",
+  description: "AIがあなたの代わりに出会いを届ける。あなたは、感じるだけでいい。40代からのパートナー探しサービス。",
   openGraph: {
     title: "よりそい | 40代からの、新しい出会いのかたち",
     description: "AIがあなたの代わりに出会いを届ける。あなたは、感じるだけでいい。",
