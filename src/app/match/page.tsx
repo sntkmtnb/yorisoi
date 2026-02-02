@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface MatchProfile {
   id: string;
@@ -24,6 +24,38 @@ const DEMO_MATCH: MatchProfile = {
   interests: ["読書", "旅行", "カフェ巡り", "写真"],
   lifeStory: "20代は仕事一筋で、30代で少し立ち止まりました。そこから自分の本当にやりたいことを見つめ直して、今は好きなことを大切にする生活をしています。\n\n一人の時間も好きだけど、同じ温度感で過ごせる人がいたらいいなと、最近思うようになりました。",
 };
+
+function NextMatchCountdown() {
+  const [timeLeft, setTimeLeft] = useState("");
+
+  useEffect(() => {
+    const update = () => {
+      const now = new Date();
+      const tomorrow = new Date(now);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      tomorrow.setHours(8, 0, 0, 0); // 明朝8時
+      if (now.getHours() < 8) {
+        tomorrow.setDate(tomorrow.getDate() - 1);
+      }
+      const diff = tomorrow.getTime() - now.getTime();
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      setTimeLeft(`${h}時間${m}分`);
+    };
+    update();
+    const timer = setInterval(update, 60000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="text-center mt-6 p-4 rounded-xl bg-white/50">
+      <p className="text-sm md:text-base text-[var(--color-text-light)]">
+        次の紹介まで <span className="text-[var(--color-warm)] font-medium">{timeLeft}</span>
+      </p>
+      <p className="text-xs text-[var(--color-text-light)] mt-1">毎朝8時に届きます</p>
+    </div>
+  );
+}
 
 export default function MatchPage() {
   const [match] = useState<MatchProfile>(DEMO_MATCH);
@@ -180,9 +212,7 @@ export default function MatchPage() {
           </button>
         </div>
 
-        <p className="text-center text-sm md:text-base text-[var(--color-text-light)] mt-6">
-          次の紹介は明日届きます
-        </p>
+        <NextMatchCountdown />
       </div>
     </div>
   );
