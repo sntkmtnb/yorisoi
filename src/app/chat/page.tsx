@@ -86,6 +86,8 @@ export default function ChatPage() {
     setShowQuickReplies(false);
 
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000);
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -95,7 +97,9 @@ export default function ChatPage() {
             content: m.content,
           })),
         }),
+        signal: controller.signal,
       });
+      clearTimeout(timeoutId);
       const data = await res.json();
       setMessages((prev) => [
         ...prev,
