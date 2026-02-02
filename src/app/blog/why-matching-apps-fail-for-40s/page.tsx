@@ -153,14 +153,35 @@ export default function Article() {
             AIがあなたの話を聞き、あなたの魅力を見つけ、あなたに合った人を毎日一人だけ紹介します。スワイプも、プロフィール作成も、写真選びも必要ありません。
           </p>
 
-          <div className="text-center mt-12 py-8 border-t border-[var(--color-cream-dark)]">
-            <p className="text-[var(--color-text-light)] mb-4">
+          {/* Share */}
+          <div className="flex items-center gap-4 mt-12 pt-8 border-t border-[var(--color-cream-dark)]">
+            <p className="text-sm text-[var(--color-text-light)]">この記事をシェア：</p>
+            <a
+              href="https://twitter.com/intent/tweet?text=40代がマッチングアプリで失敗する本当の理由&url=https://yorisoi.love/blog/why-matching-apps-fail-for-40s"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-text-light)] hover:text-[var(--color-warm)] transition-colors text-sm py-2 px-3 border border-[var(--color-cream-dark)] rounded-lg"
+            >
+              𝕏 でシェア
+            </a>
+            <a
+              href="https://line.me/R/msg/text/?40代がマッチングアプリで失敗する本当の理由%0Ahttps://yorisoi.love/blog/why-matching-apps-fail-for-40s"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-text-light)] hover:text-[#06C755] transition-colors text-sm py-2 px-3 border border-[var(--color-cream-dark)] rounded-lg"
+            >
+              LINEで送る
+            </a>
+          </div>
+
+          <div className="text-center mt-8 py-8">
+            <p className="text-[var(--color-text-light)] mb-4 text-base">
               マッチングアプリで疲れた40代へ。<br />
               よりそいは、全く違うアプローチです。
             </p>
             <a
               href="/#waitlist"
-              className="inline-block bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white px-8 py-3 rounded-xl transition-all"
+              className="inline-block bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white px-8 py-4 rounded-xl transition-all text-base md:text-lg"
             >
               よりそいに事前登録する（無料）
             </a>

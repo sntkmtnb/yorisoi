@@ -155,13 +155,34 @@ export default function Article() {
             </ol>
           </div>
 
-          <div className="text-center mt-12 py-8 border-t border-[var(--color-cream-dark)]">
-            <p className="text-[var(--color-text-light)] mb-4">
+          {/* Share */}
+          <div className="flex items-center gap-4 mt-12 pt-8 border-t border-[var(--color-cream-dark)]">
+            <p className="text-sm text-[var(--color-text-light)]">この記事をシェア：</p>
+            <a
+              href="https://twitter.com/intent/tweet?text=40代から始める出会い：失敗しない5つのステップ&url=https://yorisoi.love/blog/over-40-dating-guide"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-text-light)] hover:text-[var(--color-warm)] transition-colors text-sm py-2 px-3 border border-[var(--color-cream-dark)] rounded-lg"
+            >
+              𝕏 でシェア
+            </a>
+            <a
+              href="https://line.me/R/msg/text/?40代から始める出会い：失敗しない5つのステップ%0Ahttps://yorisoi.love/blog/over-40-dating-guide"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-text-light)] hover:text-[#06C755] transition-colors text-sm py-2 px-3 border border-[var(--color-cream-dark)] rounded-lg"
+            >
+              LINEで送る
+            </a>
+          </div>
+
+          <div className="text-center mt-8 py-8">
+            <p className="text-[var(--color-text-light)] mb-4 text-base">
               40代からの出会いを、もっと簡単に。
             </p>
             <a
               href="/#waitlist"
-              className="inline-block bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white px-8 py-3 rounded-xl transition-all"
+              className="inline-block bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white px-8 py-4 rounded-xl transition-all text-base md:text-lg"
             >
               よりそいに事前登録する（無料）
             </a>
