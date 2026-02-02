@@ -189,6 +189,24 @@ export default function Article() {
           </div>
         </div>
       </article>
+
+      {/* Related Article */}
+      <div className="max-w-3xl mx-auto px-6 pb-12">
+        <div className="border-t border-[var(--color-cream-dark)] pt-8">
+          <p className="text-sm text-[var(--color-text-light)] mb-3">関連記事</p>
+          <a
+            href="/blog/why-matching-apps-fail-for-40s"
+            className="block bg-white rounded-2xl p-5 hover:shadow-md transition-shadow"
+          >
+            <h3 className="text-base md:text-lg font-medium text-[var(--color-warm-dark)]">
+              40代がマッチングアプリで失敗する本当の理由
+            </h3>
+            <p className="text-sm text-[var(--color-text-light)] mt-1">
+              スワイプ、写真勝負、大量マッチング。今のマッチングアプリは20代のために設計されています。
+            </p>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

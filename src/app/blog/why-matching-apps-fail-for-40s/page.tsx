@@ -188,6 +188,24 @@ export default function Article() {
           </div>
         </div>
       </article>
+
+      {/* Related Article */}
+      <div className="max-w-3xl mx-auto px-6 pb-12">
+        <div className="border-t border-[var(--color-cream-dark)] pt-8">
+          <p className="text-sm text-[var(--color-text-light)] mb-3">関連記事</p>
+          <a
+            href="/blog/over-40-dating-guide"
+            className="block bg-white rounded-2xl p-5 hover:shadow-md transition-shadow"
+          >
+            <h3 className="text-base md:text-lg font-medium text-[var(--color-warm-dark)]">
+              40代から始める出会い：失敗しない5つのステップ
+            </h3>
+            <p className="text-sm text-[var(--color-text-light)] mt-1">
+              40代の出会いは「若い頃と同じ方法」では上手くいきません。大人だからこその出会い方があります。
+            </p>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
