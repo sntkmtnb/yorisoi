@@ -77,6 +77,8 @@ export default function Home() {
       const data = await res.json();
       if (res.ok) {
         setSubmitted(true);
+        // Scroll to show success message
+        document.getElementById("waitlist")?.scrollIntoView({ behavior: "smooth" });
       } else {
         setError(data.error || "エラーが発生しました");
       }
