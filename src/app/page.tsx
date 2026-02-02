@@ -235,7 +235,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Safety & Privacy Section - NEW */}
+      {/* Comparison Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-serif text-3xl md:text-4xl text-center text-[var(--color-warm-dark)] mb-12">
+            従来のアプリとの違い
+          </h2>
+          <div className="space-y-4">
+            {[
+              { label: "プロフィール作成", old: "自分で文章を書く・写真を用意", new: "AIと話すだけで自動作成" },
+              { label: "相手の探し方", old: "写真を見てスワイプ", new: "AIが毎日一人を厳選紹介" },
+              { label: "写真", old: "必須（見た目重視）", new: "不要（人柄重視）" },
+              { label: "マッチング後", old: "自分でメッセージを考える", new: "AIがきっかけ作りをサポート" },
+              { label: "対象年齢", old: "20〜30代が中心", new: "40代以上に特化" },
+              { label: "サポート", old: "なし or 問い合わせフォーム", new: "AIが24時間いつでも味方" },
+            ].map((row, i) => (
+              <div key={i} className="grid grid-cols-1 md:grid-cols-[140px_1fr_1fr] gap-2 md:gap-4 p-4 md:p-5 rounded-xl bg-[var(--color-cream)]">
+                <p className="font-medium text-[var(--color-warm-dark)] text-sm md:text-base">{row.label}</p>
+                <div className="flex items-start gap-2">
+                  <span className="text-[var(--color-text-light)] shrink-0">❌</span>
+                  <p className="text-sm md:text-base text-[var(--color-text-light)]">{row.old}</p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-[var(--color-warm)] shrink-0">✅</span>
+                  <p className="text-sm md:text-base text-[var(--color-warm-dark)] font-medium">{row.new}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Safety & Privacy Section */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl text-[var(--color-warm-dark)] mb-12">

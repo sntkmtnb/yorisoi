@@ -93,7 +93,7 @@ export default function MatchPage() {
 
       <div className="max-w-2xl mx-auto px-4 md:px-6 py-6 md:py-8">
         {/* AI Introduction */}
-        <div className="bg-white rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-sm mb-5 md:mb-6">
+        <div className="bg-white rounded-2xl md:rounded-3xl p-5 md:p-6 shadow-sm mb-5 md:mb-6 animate-slide-up">
           <div className="flex items-start gap-3 mb-3">
             <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-[var(--color-warm)] to-[var(--color-accent)] flex items-center justify-center text-white text-sm shrink-0">
               🤝
@@ -110,7 +110,7 @@ export default function MatchPage() {
         </div>
 
         {/* Profile Card */}
-        <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-sm mb-5 md:mb-6">
+        <div className="bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-sm mb-5 md:mb-6 animate-slide-up-delay">
           {/* Avatar area - more elegant gradient */}
           <div className="h-40 md:h-48 bg-gradient-to-br from-[var(--color-warm-light)]/60 via-[var(--color-accent-soft)]/40 to-[var(--color-cream-dark)] flex items-center justify-center relative">
             <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center border-4 border-white/70">

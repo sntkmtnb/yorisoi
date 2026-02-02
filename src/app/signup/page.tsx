@@ -29,10 +29,41 @@ export default function SignupPage() {
 
   const stepTitles = ["アカウント情報", "プロフィール", "基本情報"];
 
+  const [completed, setCompleted] = useState(false);
+
   const handleSubmit = async () => {
     // TODO: Supabase Auth
-    window.location.href = "/chat";
+    setCompleted(true);
   };
+
+  if (completed) {
+    return (
+      <div className="min-h-screen bg-[var(--color-cream)] flex items-center justify-center px-6 py-12">
+        <div className="text-center max-w-md animate-scale-in">
+          <p className="text-5xl mb-6">🌸</p>
+          <h2 className="font-serif text-2xl md:text-3xl text-[var(--color-warm-dark)] mb-4">
+            ようこそ、{form.displayName}さん
+          </h2>
+          <p className="text-[var(--color-text-light)] leading-relaxed mb-4 text-base md:text-lg">
+            アカウントの作成が完了しました。
+          </p>
+          <p className="text-[var(--color-text)] leading-relaxed mb-8 text-base md:text-lg">
+            まずはAIコンシェルジュとお話ししましょう。<br />
+            気軽な会話から、あなたの魅力を引き出します。
+          </p>
+          <a
+            href="/chat"
+            className="inline-block bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white px-10 py-4 rounded-xl text-lg transition-all hover:shadow-lg"
+          >
+            AIと話してみる 💬
+          </a>
+          <p className="text-sm text-[var(--color-text-light)] mt-4">
+            難しいことは聞きません。日常会話でOKです 😊
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[var(--color-cream)] flex items-center justify-center px-6 py-12">
