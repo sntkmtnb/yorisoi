@@ -57,6 +57,11 @@ export default function LoginPage() {
           >
             ログイン
           </button>
+          <p className="text-center">
+            <a href="#" className="text-sm text-[var(--color-text-light)] hover:text-[var(--color-warm)] underline">
+              パスワードをお忘れの方
+            </a>
+          </p>
         </form>
 
         <p className="text-center text-sm md:text-base text-[var(--color-text-light)] mt-6">

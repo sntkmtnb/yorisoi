@@ -89,7 +89,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-cream)]/80 backdrop-blur-md border-b border-[var(--color-cream-dark)]/50">
+      <nav aria-label="メインナビゲーション" className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-cream)]/80 backdrop-blur-md border-b border-[var(--color-cream-dark)]/50">
         <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
           <span className="font-serif text-xl text-[var(--color-warm-dark)]">よりそい</span>
           <div className="flex items-center gap-4 md:gap-6 text-sm md:text-base">
@@ -502,7 +502,7 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <footer className="py-12 pb-24 md:pb-12 px-6 bg-[var(--color-warm-dark)] text-white/60">
+      <footer aria-label="フッター" className="py-12 pb-24 md:pb-12 px-6 bg-[var(--color-warm-dark)] text-white/60">
         <div className="max-w-4xl mx-auto text-center">
           <p className="font-serif text-2xl text-white/80 mb-4">よりそい</p>
           <p className="text-sm md:text-base">
