@@ -113,6 +113,7 @@ export default function SignupPage() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder="example@email.com"
+                  autoComplete="email"
                   className="w-full px-5 py-4 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] text-base"
                 />
               </div>
@@ -126,6 +127,7 @@ export default function SignupPage() {
                   value={form.password}
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
                   placeholder="8文字以上で入力"
+                  autoComplete="new-password"
                   className="w-full px-5 py-4 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] text-base"
                 />
                 {form.password.length > 0 && form.password.length < 8 && (

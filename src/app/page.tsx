@@ -469,6 +469,8 @@ export default function Home() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="example@email.com"
                   required
+                  autoComplete="email"
+                  aria-label="メールアドレス"
                   className="w-full px-5 py-4 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] text-[var(--color-text)] placeholder:text-[var(--color-text-light)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] transition-all text-base"
                 />
               </div>
