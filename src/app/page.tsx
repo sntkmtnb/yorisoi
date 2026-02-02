@@ -279,7 +279,7 @@ export default function Home() {
       </section>
 
       {/* Safety & Privacy Section */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl text-[var(--color-warm-dark)] mb-12">
             安心して使える理由
