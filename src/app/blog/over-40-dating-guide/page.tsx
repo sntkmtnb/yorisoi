@@ -3,11 +3,28 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "40代から始める出会い：失敗しない5つのステップ | よりそいブログ",
   description: "40代の出会いは「若い頃と同じ方法」では上手くいきません。大人だからこその出会い方を、5つのステップで解説します。",
+  openGraph: {
+    title: "40代から始める出会い：失敗しない5つのステップ",
+    description: "40代の出会いは「若い頃と同じ方法」では上手くいきません。大人だからこその出会い方を解説。",
+    type: "article",
+    publishedTime: "2026-02-01T00:00:00+09:00",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "40代から始める出会い：失敗しない5つのステップ",
+  "datePublished": "2026-02-01T00:00:00+09:00",
+  "author": { "@type": "Organization", "name": "よりそい" },
+  "publisher": { "@type": "Organization", "name": "よりそい", "url": "https://yorisoi.love" },
+  "description": "40代の出会いは「若い頃と同じ方法」では上手くいきません。大人だからこその出会い方を解説。",
 };
 
 export default function Article() {
   return (
     <div className="min-h-screen bg-[var(--color-cream)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="bg-white border-b border-[var(--color-cream-dark)] px-6 py-4">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <a href="/" className="font-serif text-xl text-[var(--color-warm-dark)]">

@@ -1,12 +1,14 @@
 {
-  "name": "よりそい",
+  "name": "よりそい - 40代からのパートナー探し",
   "short_name": "よりそい",
-  "description": "40代からの、新しい出会いのかたち",
+  "description": "AIがあなたの代わりに出会いを届ける。写真なし・プロフィール作成不要の安心サービス。",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FDF8F0",
   "theme_color": "#8B6F47",
   "orientation": "portrait",
+  "lang": "ja",
+  "categories": ["social", "lifestyle"],
   "icons": [
     {
       "src": "/icon-192.png",

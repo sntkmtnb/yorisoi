@@ -3,11 +3,28 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "40代がマッチングアプリで失敗する本当の理由 | よりそいブログ",
   description: "Pairs、Omiai、Tinderを試して挫折した40代へ。あなたが悪いんじゃない。アプリがあなたに合っていなかっただけ。",
+  openGraph: {
+    title: "40代がマッチングアプリで失敗する本当の理由",
+    description: "スワイプ、写真勝負、大量マッチング。今のマッチングアプリは20代のために設計されています。",
+    type: "article",
+    publishedTime: "2026-02-01T00:00:00+09:00",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "40代がマッチングアプリで失敗する本当の理由",
+  "datePublished": "2026-02-01T00:00:00+09:00",
+  "author": { "@type": "Organization", "name": "よりそい" },
+  "publisher": { "@type": "Organization", "name": "よりそい", "url": "https://yorisoi.love" },
+  "description": "スワイプ、写真勝負、大量マッチング。今のマッチングアプリは20代のために設計されています。",
 };
 
 export default function Article() {
   return (
     <div className="min-h-screen bg-[var(--color-cream)]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header className="bg-white border-b border-[var(--color-cream-dark)] px-6 py-4">
         <div className="max-w-3xl mx-auto flex items-center justify-between">
           <a href="/" className="font-serif text-xl text-[var(--color-warm-dark)]">
