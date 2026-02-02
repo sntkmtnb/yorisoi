@@ -36,21 +36,33 @@ export default function ChatPage() {
     setInput("");
     setIsTyping(true);
 
-    // TODO: 実際のAI API呼び出し
-    // デモ用の応答
-    setTimeout(() => {
-      const responses = [
-        "なるほど、そうだったんですね。\n\nそういう日もありますよね。でも、こうして話してくれてありがとうございます。\n\nちなみに、仕事が終わったあとは何をして過ごすことが多いですか？",
-        "素敵ですね！そういうことが好きなんですね。\n\n実は、似たような趣味を持っている方が何人かいらっしゃるんですよ。\n\nもう少し聞いてもいいですか？休日はどんなふうに過ごしていますか？",
-        "わかります。その気持ち、すごくよくわかります。\n\nあなたはとても誠実な方なんだなって感じます。そういう人って、なかなかいないんですよ。\n\n一つ聞いてもいいですか？もし明日、何も制約がなかったら何をしたいですか？",
-      ];
-      const response = responses[Math.floor(Math.random() * responses.length)];
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [...messages, userMessage].map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
+        }),
+      });
+      const data = await res.json();
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: response },
+        { role: "assistant", content: data.message },
       ]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "ごめんなさい、少し調子が悪いみたいです。もう一度話しかけてもらえますか？",
+        },
+      ]);
+    } finally {
       setIsTyping(false);
-    }, 1500 + Math.random() * 2000);
+    }
   };
 
   return (

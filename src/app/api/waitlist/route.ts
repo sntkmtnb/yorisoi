@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
 
+// TODO: Supabase移行後はこちらを使う
+// import { createServiceClient } from "@/lib/supabase";
+
 const DATA_FILE = path.join(process.cwd(), "data", "waitlist.json");
 
 async function ensureDataDir() {
@@ -32,10 +35,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Supabase版（キー設定後に切り替え）
+    // const supabase = createServiceClient();
+    // const { data: existing } = await supabase
+    //   .from("waitlist")
+    //   .select("id")
+    //   .eq("email", email)
+    //   .single();
+    // if (existing) {
+    //   return NextResponse.json({ message: "すでに登録されています", duplicate: true });
+    // }
+    // const { error } = await supabase
+    //   .from("waitlist")
+    //   .insert({ email, age_group: age });
+    // if (error) throw error;
+
+    // ローカルJSON版（一時的）
     await ensureDataDir();
     const waitlist = await readWaitlist();
 
-    // Check duplicate
     if (waitlist.some((entry: any) => entry.email === email)) {
       return NextResponse.json(
         { message: "すでに登録されています", duplicate: true },
