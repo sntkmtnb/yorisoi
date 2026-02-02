@@ -70,12 +70,14 @@ export default function MatchPage() {
           <h2 className="font-serif text-2xl md:text-3xl text-[var(--color-warm-dark)] mb-4">
             気持ちを伝えました
           </h2>
-          <p className="text-[var(--color-text-light)] leading-relaxed mb-8 text-base md:text-lg">
+          <p className="text-[var(--color-text-light)] leading-relaxed mb-4 text-base md:text-lg">
             {match.displayName}さんにも、あなたのことを紹介しています。
-            お互いに興味を持ったら、メッセージが始まります。
+          </p>
+          <p className="text-[var(--color-text-light)] leading-relaxed mb-4 text-base md:text-lg">
+            お互いに興味を持ったら、メッセージのやり取りが始まります。
           </p>
           <p className="text-[var(--color-warm)] font-medium mb-8 text-lg">
-            楽しみにしていてくださいね。
+            楽しみにしていてくださいね 😊
           </p>
           <a
             href="/chat"
@@ -96,9 +98,12 @@ export default function MatchPage() {
           <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mb-4">
             大丈夫です
           </h2>
+          <p className="text-[var(--color-text-light)] leading-relaxed mb-4 text-base md:text-lg">
+            明日また、新しい出会いを届けます。
+          </p>
           <p className="text-[var(--color-text-light)] leading-relaxed mb-8 text-base md:text-lg">
-            明日また、新しい出会いを届けます。<br />
-            焦らなくて大丈夫。あなたに合う人は必ずいます。
+            焦らなくて大丈夫。<br />
+            あなたのペースで、あなたに合う人を一緒に探しましょう。
           </p>
           <a
             href="/chat"
@@ -203,9 +208,9 @@ export default function MatchPage() {
         <div className="flex gap-3 md:gap-4">
           <button
             onClick={() => setResponded("passed")}
-            className="flex-1 py-4 rounded-xl border-2 border-[var(--color-cream-dark)] text-[var(--color-text-light)] hover:bg-white transition-all text-base md:text-lg"
+            className="flex-1 py-4 rounded-xl border-2 border-[var(--color-cream-dark)] text-[var(--color-text-light)] hover:bg-white transition-all text-base md:text-lg active:scale-95"
           >
-            今日はパス
+            今回は見送る
           </button>
           <button
             onClick={() => {
