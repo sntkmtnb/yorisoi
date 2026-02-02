@@ -298,11 +298,13 @@ export default function Home() {
                 desc: "困ったことがあればいつでもAIに相談可能。不快な体験は運営が迅速に対応します。",
               },
             ].map((item, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-[var(--color-cream)]">
-                <span className="text-3xl block mb-3">{item.icon}</span>
-                <h3 className="text-lg font-medium text-[var(--color-warm-dark)] mb-2">{item.title}</h3>
-                <p className="text-[var(--color-text-light)] leading-relaxed text-sm md:text-base">{item.desc}</p>
-              </div>
+              <FadeInSection key={i} delay={i * 150}>
+                <div className="p-6 rounded-2xl bg-[var(--color-cream)] h-full">
+                  <span className="text-3xl block mb-3">{item.icon}</span>
+                  <h3 className="text-lg font-medium text-[var(--color-warm-dark)] mb-2">{item.title}</h3>
+                  <p className="text-[var(--color-text-light)] leading-relaxed text-sm md:text-base">{item.desc}</p>
+                </div>
+              </FadeInSection>
             ))}
           </div>
         </div>
@@ -357,15 +359,17 @@ export default function Home() {
                 desc: "お互いに興味を持ったら、メッセージのやり取りが始まります。AIがそっとサポートし続けます。",
               },
             ].map((item, i) => (
-              <div key={i} className="flex gap-5 md:gap-6 items-start">
-                <span className="font-serif text-3xl md:text-4xl text-[var(--color-accent-soft)] font-bold shrink-0">
-                  {item.step}
-                </span>
-                <div>
-                  <h3 className="text-lg md:text-xl font-medium text-[var(--color-warm-dark)] mb-2">{item.title}</h3>
-                  <p className="text-[var(--color-text-light)] leading-relaxed text-base">{item.desc}</p>
+              <FadeInSection key={i} delay={i * 150}>
+                <div className="flex gap-5 md:gap-6 items-start">
+                  <span className="font-serif text-3xl md:text-4xl text-[var(--color-accent-soft)] font-bold shrink-0">
+                    {item.step}
+                  </span>
+                  <div>
+                    <h3 className="text-lg md:text-xl font-medium text-[var(--color-warm-dark)] mb-2">{item.title}</h3>
+                    <p className="text-[var(--color-text-light)] leading-relaxed text-base">{item.desc}</p>
+                  </div>
                 </div>
-              </div>
+              </FadeInSection>
             ))}
           </div>
         </div>
@@ -398,15 +402,17 @@ export default function Home() {
                 text: "プロフィールを書くのが苦手だったので、話すだけでいいのは本当にありがたい。楽しみにしてます。",
               },
             ].map((voice, i) => (
-              <div key={i} className="bg-white p-6 rounded-2xl shadow-sm">
-                <p className="text-[var(--color-text)] leading-relaxed mb-4 text-base">
-                  「{voice.text}」
-                </p>
-                <div className="border-t border-[var(--color-cream-dark)] pt-3">
-                  <p className="text-sm text-[var(--color-warm-dark)] font-medium">{voice.name}</p>
-                  <p className="text-xs text-[var(--color-text-light)]">{voice.age}</p>
+              <FadeInSection key={i} delay={i * 150}>
+                <div className="bg-white p-6 rounded-2xl shadow-sm h-full">
+                  <p className="text-[var(--color-text)] leading-relaxed mb-4 text-base">
+                    「{voice.text}」
+                  </p>
+                  <div className="border-t border-[var(--color-cream-dark)] pt-3">
+                    <p className="text-sm text-[var(--color-warm-dark)] font-medium">{voice.name}</p>
+                    <p className="text-xs text-[var(--color-text-light)]">{voice.age}</p>
+                  </div>
                 </div>
-              </div>
+              </FadeInSection>
             ))}
           </div>
         </div>
