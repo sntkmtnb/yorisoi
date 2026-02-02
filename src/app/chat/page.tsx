@@ -21,12 +21,48 @@ const QUICK_REPLIES = [
   "うーん、まあまあかな",
 ];
 
+const STORAGE_KEY = "yorisoi-chat-messages";
+
+function loadMessages(): Message[] {
+  if (typeof window === "undefined") return INITIAL_MESSAGES;
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+    }
+  } catch { /* ignore */ }
+  return INITIAL_MESSAGES;
+}
+
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [showQuickReplies, setShowQuickReplies] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const initialized = useRef(false);
+
+  // Load saved messages on mount
+  useEffect(() => {
+    if (!initialized.current) {
+      initialized.current = true;
+      const saved = loadMessages();
+      setMessages(saved);
+      if (saved.length > 1) {
+        setShowQuickReplies(false);
+      }
+    }
+  }, []);
+
+  // Save messages to localStorage
+  useEffect(() => {
+    if (initialized.current && messages.length > 0) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+      } catch { /* ignore */ }
+    }
+  }, [messages]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -78,19 +114,35 @@ export default function ChatPage() {
   return (
     <div className="min-h-screen bg-[var(--color-cream)] flex flex-col">
       {/* Header */}
-      <header className="bg-white border-b border-[var(--color-cream-dark)] px-4 md:px-6 py-3 md:py-4 flex items-center gap-3 md:gap-4">
-        <a href="/" className="text-[var(--color-text-light)] hover:text-[var(--color-warm)] py-1 text-base md:text-lg">
-          ← 戻る
-        </a>
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-[var(--color-warm)] to-[var(--color-accent)] flex items-center justify-center text-white text-lg">
-            🤝
-          </div>
-          <div>
-            <p className="font-medium text-[var(--color-warm-dark)] text-base">よりそいAI</p>
-            <p className="text-xs md:text-sm text-[var(--color-text-light)]">あなたの味方です</p>
+      <header className="bg-white border-b border-[var(--color-cream-dark)] px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
+        <div className="flex items-center gap-3 md:gap-4">
+          <a href="/" className="text-[var(--color-text-light)] hover:text-[var(--color-warm)] py-1 text-base md:text-lg">
+            ← 戻る
+          </a>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-gradient-to-br from-[var(--color-warm)] to-[var(--color-accent)] flex items-center justify-center text-white text-lg">
+              🤝
+            </div>
+            <div>
+              <p className="font-medium text-[var(--color-warm-dark)] text-base">よりそいAI</p>
+              <p className="text-xs md:text-sm text-[var(--color-text-light)]">あなたの味方です</p>
+            </div>
           </div>
         </div>
+        {messages.length > 1 && (
+          <button
+            onClick={() => {
+              if (confirm("会話をリセットしますか？")) {
+                localStorage.removeItem(STORAGE_KEY);
+                setMessages(INITIAL_MESSAGES);
+                setShowQuickReplies(true);
+              }
+            }}
+            className="text-xs text-[var(--color-text-light)] hover:text-[var(--color-warm)] py-2 px-3"
+          >
+            リセット
+          </button>
+        )}
       </header>
 
       {/* Privacy Note - First time */}
