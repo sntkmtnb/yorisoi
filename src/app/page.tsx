@@ -131,7 +131,7 @@ export default function Home() {
           <p className="text-lg md:text-2xl text-[var(--color-text-light)] leading-relaxed mb-4 animate-fade-in-up-delay-2">
             AIがあなたの代わりに、出会いを届ける。
           </p>
-          <p className="text-lg md:text-2xl text-[var(--color-text-light)] leading-relaxed mb-12 animate-fade-in-up-delay-2">
+          <p className="text-lg md:text-2xl text-[var(--color-text)] leading-relaxed mb-12 animate-fade-in-up-delay-2 font-medium">
             あなたは、感じるだけでいい。
           </p>
 
@@ -622,7 +622,10 @@ export default function Home() {
             <a href="/privacy" className="hover:text-white/80 transition-colors py-2">プライバシーポリシー</a>
             <a href="/blog" className="hover:text-white/80 transition-colors py-2">ブログ</a>
           </div>
-          <p className="text-xs md:text-sm mt-6">
+          <p className="text-xs md:text-sm mt-4">
+            お問い合わせ: <a href="mailto:hello@yorisoi.love" className="hover:text-white/80 underline">hello@yorisoi.love</a>
+          </p>
+          <p className="text-xs md:text-sm mt-4">
             © 2026 よりそい All rights reserved.
           </p>
         </div>
