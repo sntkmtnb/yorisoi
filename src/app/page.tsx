@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import FadeInSection from "@/components/FadeInSection";
 
 const FAQ_ITEMS = [
   {
@@ -178,10 +179,12 @@ export default function Home() {
               "プロフィールを書くのも、写真を選ぶのも、もう疲れた",
               "スワイプするたびに、少しずつ自信がなくなっていく",
             ].map((text, i) => (
-              <div key={i} className="flex items-start gap-4 p-5 md:p-6 rounded-2xl bg-[var(--color-cream)] hover:bg-[var(--color-cream-dark)] transition-colors duration-300">
-                <span className="text-[var(--color-accent)] text-xl md:text-2xl mt-0.5 shrink-0">✦</span>
-                <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed">{text}</p>
-              </div>
+              <FadeInSection key={i} delay={i * 100}>
+                <div className="flex items-start gap-4 p-5 md:p-6 rounded-2xl bg-[var(--color-cream)] hover:bg-[var(--color-cream-dark)] transition-colors duration-300">
+                  <span className="text-[var(--color-accent)] text-xl md:text-2xl mt-0.5 shrink-0">✦</span>
+                  <p className="text-base md:text-lg text-[var(--color-text)] leading-relaxed">{text}</p>
+                </div>
+              </FadeInSection>
             ))}
           </div>
 
@@ -225,11 +228,13 @@ export default function Home() {
                 desc: "デートの相談も、不安な夜も。AIがいつでも話を聞きます。あなたは、一人じゃない。",
               },
             ].map((item, i) => (
-              <div key={i} className="bg-white p-7 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <span className="text-4xl block mb-4">{item.icon}</span>
-                <h3 className="text-lg md:text-xl font-medium text-[var(--color-warm-dark)] mb-3">{item.title}</h3>
-                <p className="text-[var(--color-text-light)] leading-relaxed text-base">{item.desc}</p>
-              </div>
+              <FadeInSection key={i} delay={i * 100}>
+                <div className="bg-white p-7 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
+                  <span className="text-4xl block mb-4">{item.icon}</span>
+                  <h3 className="text-lg md:text-xl font-medium text-[var(--color-warm-dark)] mb-3">{item.title}</h3>
+                  <p className="text-[var(--color-text-light)] leading-relaxed text-base">{item.desc}</p>
+                </div>
+              </FadeInSection>
             ))}
           </div>
         </div>

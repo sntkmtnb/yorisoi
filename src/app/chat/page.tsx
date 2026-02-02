@@ -159,7 +159,7 @@ export default function ChatPage() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
-            placeholder="なんでも話してください..."
+            placeholder="なんでも話してください...（🎤音声入力もOK）"
             className="flex-1 px-4 md:px-5 py-3.5 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] text-[var(--color-text)] placeholder:text-[var(--color-text-light)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] text-base"
           />
           <button
