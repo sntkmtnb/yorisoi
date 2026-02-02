@@ -1,91 +1,73 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createServiceClient } from "@/lib/supabase";
 import { promises as fs } from "fs";
 import path from "path";
 
-// TODO: Supabase移行後はこちらを使う
-// import { createServiceClient } from "@/lib/supabase";
-
 const DATA_FILE = path.join(process.cwd(), "data", "waitlist.json");
+const USE_SUPABASE = !!process.env.SUPABASE_SERVICE_ROLE_KEY && !!process.env.NEXT_PUBLIC_SUPABASE_URL;
 
+// Local JSON fallback
 async function ensureDataDir() {
-  const dir = path.dirname(DATA_FILE);
-  try {
-    await fs.mkdir(dir, { recursive: true });
-  } catch {}
+  try { await fs.mkdir(path.dirname(DATA_FILE), { recursive: true }); } catch {}
 }
-
 async function readWaitlist(): Promise<any[]> {
-  try {
-    const data = await fs.readFile(DATA_FILE, "utf-8");
-    return JSON.parse(data);
-  } catch {
-    return [];
-  }
+  try { return JSON.parse(await fs.readFile(DATA_FILE, "utf-8")); } catch { return []; }
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { email, age } = body;
-
+    const { email, age } = await request.json();
     if (!email || !age) {
-      return NextResponse.json(
-        { error: "メールアドレスと年代は必須です" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "メールアドレスと年代は必須です" }, { status: 400 });
     }
 
-    // Supabase版（キー設定後に切り替え）
-    // const supabase = createServiceClient();
-    // const { data: existing } = await supabase
-    //   .from("waitlist")
-    //   .select("id")
-    //   .eq("email", email)
-    //   .single();
-    // if (existing) {
-    //   return NextResponse.json({ message: "すでに登録されています", duplicate: true });
-    // }
-    // const { error } = await supabase
-    //   .from("waitlist")
-    //   .insert({ email, age_group: age });
-    // if (error) throw error;
+    if (USE_SUPABASE) {
+      const supabase = createServiceClient();
+      
+      // Check duplicate
+      const { data: existing } = await supabase
+        .from("waitlist")
+        .select("id")
+        .eq("email", email)
+        .single();
+      
+      if (existing) {
+        return NextResponse.json({ message: "すでに登録されています", duplicate: true });
+      }
 
-    // ローカルJSON版（一時的）
+      const { error } = await supabase.from("waitlist").insert({
+        email,
+        age_group: age,
+        ip: request.headers.get("x-forwarded-for") || "unknown",
+      });
+
+      if (error) throw error;
+
+      const { count } = await supabase.from("waitlist").select("*", { count: "exact", head: true });
+      return NextResponse.json({ message: "登録完了", count });
+    }
+
+    // Local JSON fallback
     await ensureDataDir();
     const waitlist = await readWaitlist();
-
-    if (waitlist.some((entry: any) => entry.email === email)) {
-      return NextResponse.json(
-        { message: "すでに登録されています", duplicate: true },
-        { status: 200 }
-      );
+    if (waitlist.some((e: any) => e.email === email)) {
+      return NextResponse.json({ message: "すでに登録されています", duplicate: true });
     }
-
-    waitlist.push({
-      email,
-      age,
-      createdAt: new Date().toISOString(),
-      ip: request.headers.get("x-forwarded-for") || "unknown",
-    });
-
+    waitlist.push({ email, age, createdAt: new Date().toISOString(), ip: request.headers.get("x-forwarded-for") || "unknown" });
     await fs.writeFile(DATA_FILE, JSON.stringify(waitlist, null, 2));
-
-    return NextResponse.json({
-      message: "登録完了",
-      count: waitlist.length,
-    });
+    return NextResponse.json({ message: "登録完了", count: waitlist.length });
   } catch (error) {
     console.error("Waitlist error:", error);
-    return NextResponse.json(
-      { error: "サーバーエラーが発生しました" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "サーバーエラーが発生しました" }, { status: 500 });
   }
 }
 
 export async function GET() {
+  if (USE_SUPABASE) {
+    const supabase = createServiceClient();
+    const { count } = await supabase.from("waitlist").select("*", { count: "exact", head: true });
+    return NextResponse.json({ count });
+  }
   const waitlist = await readWaitlist();
-  return NextResponse.json({
-    count: waitlist.length,
-  });
+  return NextResponse.json({ count: waitlist.length });
 }
