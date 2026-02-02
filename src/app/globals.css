@@ -7,7 +7,7 @@
   --color-cream: #FDF8F0;
   --color-cream-dark: #F5EDE0;
   --color-text: #3D3228;
-  --color-text-light: #7A6E62;
+  --color-text-light: #6B5F53;
   --color-accent: #D4956A;
   --color-accent-soft: #E8C4A8;
   --color-safe: #5B8C6A;
@@ -123,6 +123,11 @@ input, select, textarea {
 /* スムーススクロール */
 html {
   scroll-behavior: smooth;
+}
+
+/* テキストコントラスト改善用クラス */
+.text-readable {
+  color: #5A4E42;
 }
 
 /* フォーカス可視性の改善（アクセシビリティ） */

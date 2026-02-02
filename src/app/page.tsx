@@ -491,8 +491,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Mobile Sticky CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-sm border-t border-[var(--color-cream-dark)] px-4 py-3 shadow-[0_-4px_12px_rgba(0,0,0,0.05)]">
+        <a
+          href="#waitlist"
+          className="block w-full bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white text-center py-3.5 rounded-xl text-base font-medium transition-all"
+        >
+          事前登録する（無料）
+        </a>
+      </div>
+
       {/* Footer */}
-      <footer className="py-12 px-6 bg-[var(--color-warm-dark)] text-white/60">
+      <footer className="py-12 pb-24 md:pb-12 px-6 bg-[var(--color-warm-dark)] text-white/60">
         <div className="max-w-4xl mx-auto text-center">
           <p className="font-serif text-2xl text-white/80 mb-4">よりそい</p>
           <p className="text-sm md:text-base">

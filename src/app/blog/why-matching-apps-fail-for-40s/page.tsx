@@ -40,7 +40,7 @@ export default function Article() {
             <strong>違います。合わなかったのは、アプリの方です。</strong>
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             理由1：写真勝負の土俵で戦わされている
           </h2>
           <p>
@@ -53,7 +53,7 @@ export default function Article() {
             40代の魅力は写真では伝わりません。<strong>人生経験、価値観、話していて心地よいかどうか</strong>——本当に大切なことは、写真1枚ではわからないのです。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             理由2：プロフィール作成が苦行
           </h2>
           <p>
@@ -66,7 +66,7 @@ export default function Article() {
             <strong>自分の魅力を文章にするのは、プロのライターでも難しいこと</strong>です。それを一般のユーザーに求めるのは、設計として間違っています。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             理由3：「選ばれない」体験の繰り返し
           </h2>
           <p>
@@ -79,7 +79,7 @@ export default function Article() {
             でも実際は、アプリの仕組みの問題です。人気ユーザーに「いいね」が集中し、大多数のユーザーは埋もれてしまう。これはアプリのビジネスモデルの構造的な問題であり、あなたの魅力の問題ではありません。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             理由4：若者向けのUI/UX
           </h2>
           <p>
@@ -92,7 +92,7 @@ export default function Article() {
             デジタルネイティブでない世代に、デジタルネイティブ向けのインターフェースを押し付けているのです。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             理由5：「出会い系」というラベルの心理的障壁
           </h2>
           <p>
@@ -105,7 +105,7 @@ export default function Article() {
             この心理的障壁が、<strong>そもそもサービスに登録すること自体をためらわせています</strong>。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             では、40代に本当に必要なものは？
           </h2>
           <p>

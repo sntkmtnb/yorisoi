@@ -34,7 +34,7 @@ export default function Article() {
             でも、知っておいてほしいことがあります。<strong>40代の出会いは、20代のそれとは全く違うものです。</strong>そして、それは悪いことではありません。むしろ、40代だからこそできる出会い方があるのです。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             なぜ40代の出会いは「難しい」と言われるのか
           </h2>
           <p>
@@ -50,7 +50,7 @@ export default function Article() {
             40代にとって、これは疲弊するだけの体験になります。写真映えを競う土俵で20代と戦っても、勝ち目はありません。そもそも、そんな戦い方をする必要がないのです。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             ステップ1：自分が本当に求めているものを知る
           </h2>
           <p>
@@ -63,7 +63,7 @@ export default function Article() {
             具体的なシーンで考えてみてください。<strong>漠然と「相手が欲しい」と思うより、「こういう時間を共有したい」と思える方が、ずっと出会いに近づきます。</strong>
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             ステップ2：外見ではなく「人生のストーリー」で繋がる
           </h2>
           <p>
@@ -76,7 +76,7 @@ export default function Article() {
             写真やスペックではなく、あなたの人生のストーリーに共感してくれる人こそ、本当のパートナーです。プロフィールには、肩書きではなく「どんな人生を歩んできたか」を書いてみてください。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             ステップ3：「数」ではなく「質」を求める
           </h2>
           <p>
@@ -86,7 +86,7 @@ export default function Article() {
             40代の出会いは<strong>「一人の人と深く向き合う」</strong>方が、ずっとうまくいきます。毎日何十人ものプロフィールをスワイプするのではなく、じっくりと一人の人のことを知る時間を大切にしてください。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             ステップ4：「完璧な自分」を見せようとしない
           </h2>
           <p>
@@ -99,7 +99,7 @@ export default function Article() {
             盛った写真や誇張した経歴は必要ありません。ありのままのあなたで十分です。
           </p>
 
-          <h2 className="font-serif text-2xl text-[var(--color-warm-dark)] mt-12 mb-4">
+          <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mt-12 mb-4 pl-4 border-l-4 border-[var(--color-warm-light)]">
             ステップ5：最初の一歩は、小さくていい
           </h2>
           <p>
