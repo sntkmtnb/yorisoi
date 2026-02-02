@@ -154,13 +154,19 @@ export default function ChatPage() {
       {/* Input */}
       <div className="bg-white border-t border-[var(--color-cream-dark)] px-3 md:px-4 py-3 md:py-4">
         <div className="max-w-3xl mx-auto flex gap-2 md:gap-3">
-          <input
-            type="text"
+          <textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && handleSend()}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+              }
+            }}
             placeholder="なんでも話してください...（🎤音声入力もOK）"
-            className="flex-1 px-4 md:px-5 py-3.5 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] text-[var(--color-text)] placeholder:text-[var(--color-text-light)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] text-base"
+            rows={1}
+            className="flex-1 px-4 md:px-5 py-3.5 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] text-[var(--color-text)] placeholder:text-[var(--color-text-light)]/60 focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] text-base resize-none max-h-32 overflow-y-auto"
+            style={{ minHeight: "48px" }}
           />
           <button
             onClick={() => handleSend()}

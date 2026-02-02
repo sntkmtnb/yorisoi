@@ -41,7 +41,20 @@ export default function Article() {
         <h1 className="font-serif text-3xl md:text-4xl text-[var(--color-warm-dark)] mt-2 mb-4">
           40代から始める出会い：失敗しない5つのステップ
         </h1>
-        <p className="text-[var(--color-text-light)] mb-12">2026年2月1日</p>
+        <p className="text-[var(--color-text-light)] mb-8">2026年2月1日 · 📖 5分で読めます</p>
+
+        {/* 目次 */}
+        <nav className="bg-white rounded-2xl p-5 md:p-6 mb-10">
+          <p className="text-sm font-medium text-[var(--color-warm-dark)] mb-3">📋 この記事の内容</p>
+          <ol className="space-y-2 text-sm md:text-base text-[var(--color-text-light)] list-decimal list-inside">
+            <li>なぜ40代の出会いは「難しい」と言われるのか</li>
+            <li>自分が本当に求めているものを知る</li>
+            <li>外見ではなく「人生のストーリー」で繋がる</li>
+            <li>「数」ではなく「質」を求める</li>
+            <li>「完璧な自分」を見せようとしない</li>
+            <li>最初の一歩は、小さくていい</li>
+          </ol>
+        </nav>
 
         <div className="max-w-none space-y-6 text-[var(--color-text)] leading-[1.9] text-base md:text-lg">
           <p>

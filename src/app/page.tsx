@@ -128,13 +128,16 @@ export default function Home() {
             あなたは、感じるだけでいい。
           </p>
 
-          <div className="animate-fade-in-up-delay-3">
+          <div className="animate-fade-in-up-delay-3 space-y-4">
             <a href="#waitlist" className="inline-block bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white px-10 py-5 rounded-full text-lg md:text-xl transition-all duration-300 hover:shadow-lg hover:scale-105">
               事前登録する（無料）
             </a>
-            <p className="text-sm text-[var(--color-text-light)] mt-4">
+            <p className="text-sm text-[var(--color-text-light)]">
               ✉️ メールアドレスだけで30秒で完了
             </p>
+            <a href="/chat" className="inline-block text-[var(--color-warm)] hover:text-[var(--color-warm-dark)] text-base underline underline-offset-4 transition-colors">
+              まずはAIと話してみる →
+            </a>
           </div>
 
           {/* Scroll indicator */}
