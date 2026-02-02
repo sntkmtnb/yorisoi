@@ -85,6 +85,9 @@ export default function MatchPage() {
           >
             AIと話す
           </a>
+          <p className="text-sm text-[var(--color-text-light)] mt-4">
+            マッチしたらお知らせします
+          </p>
         </div>
       </div>
     );
