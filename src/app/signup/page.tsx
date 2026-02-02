@@ -30,10 +30,14 @@ export default function SignupPage() {
   const stepTitles = ["アカウント情報", "プロフィール", "基本情報"];
 
   const [completed, setCompleted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async () => {
+    setSubmitting(true);
     // TODO: Supabase Auth
+    await new Promise(r => setTimeout(r, 500)); // Simulate loading
     setCompleted(true);
+    setSubmitting(false);
   };
 
   if (completed) {
@@ -298,10 +302,10 @@ export default function SignupPage() {
                 </button>
                 <button
                   onClick={handleSubmit}
-                  disabled={!form.birthYear || !form.prefecture || !form.agreeTerms}
+                  disabled={!form.birthYear || !form.prefecture || !form.agreeTerms || submitting}
                   className="flex-1 bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] disabled:opacity-40 text-white py-4 rounded-xl text-lg transition-all"
                 >
-                  はじめる ✨
+                  {submitting ? "作成中..." : "はじめる ✨"}
                 </button>
               </div>
             </div>
