@@ -5,9 +5,11 @@ import { useState } from "react";
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     // TODO: Supabase Auth
     window.location.href = "/chat";
   };
@@ -55,9 +57,10 @@ export default function LoginPage() {
           </div>
           <button
             type="submit"
-            className="w-full bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white py-4 rounded-xl text-lg transition-all"
+            disabled={loading}
+            className="w-full bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] disabled:opacity-50 text-white py-4 rounded-xl text-lg transition-all"
           >
-            ログイン
+            {loading ? "ログイン中..." : "ログイン"}
           </button>
           <p className="text-center">
             <a href="#" className="text-sm text-[var(--color-text-light)] hover:text-[var(--color-warm)] underline">

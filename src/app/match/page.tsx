@@ -65,7 +65,7 @@ export default function MatchPage() {
   if (responded === "interested") {
     return (
       <div className="min-h-screen bg-[var(--color-cream)] flex items-center justify-center px-6">
-        <div className="text-center max-w-md">
+        <div className="text-center max-w-md animate-scale-in">
           <p className="text-6xl mb-6">✨</p>
           <h2 className="font-serif text-2xl md:text-3xl text-[var(--color-warm-dark)] mb-4">
             気持ちを伝えました
@@ -91,7 +91,7 @@ export default function MatchPage() {
   if (responded === "passed") {
     return (
       <div className="min-h-screen bg-[var(--color-cream)] flex items-center justify-center px-6">
-        <div className="text-center max-w-md">
+        <div className="text-center max-w-md animate-scale-in">
           <p className="text-4xl mb-6">🌿</p>
           <h2 className="font-serif text-xl md:text-2xl text-[var(--color-warm-dark)] mb-4">
             大丈夫です
@@ -205,8 +205,10 @@ export default function MatchPage() {
             今日はパス
           </button>
           <button
-            onClick={() => setResponded("interested")}
-            className="flex-1 py-4 rounded-xl bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white transition-all text-base md:text-lg shadow-lg font-medium"
+            onClick={() => {
+              setResponded("interested");
+            }}
+            className="flex-1 py-4 rounded-xl bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white transition-all text-base md:text-lg shadow-lg font-medium active:scale-95"
           >
             話してみたい ✨
           </button>
