@@ -452,6 +452,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Numbers Section */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { num: "40+", label: "対象年齢" },
+              { num: "1人/日", label: "厳選紹介" },
+              { num: "0枚", label: "必要な写真" },
+              { num: "24h", label: "AIサポート" },
+            ].map((item, i) => (
+              <FadeInSection key={i} delay={i * 100}>
+                <div>
+                  <p className="font-serif text-2xl md:text-3xl text-[var(--color-warm)] font-bold">{item.num}</p>
+                  <p className="text-sm md:text-base text-[var(--color-text-light)] mt-1">{item.label}</p>
+                </div>
+              </FadeInSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Blog Preview Section */}
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">

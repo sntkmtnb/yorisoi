@@ -94,7 +94,7 @@ export default function SignupPage() {
 
         <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm">
           {step === 1 && (
-            <div className="space-y-5">
+            <div className="space-y-5 animate-step-in">
               <div>
                 <h2 className="text-xl font-medium text-[var(--color-warm-dark)]">
                   まずはメールアドレスから
@@ -157,7 +157,7 @@ export default function SignupPage() {
           )}
 
           {step === 2 && (
-            <div className="space-y-5">
+            <div className="space-y-5 animate-step-in">
               <div>
                 <h2 className="text-xl font-medium text-[var(--color-warm-dark)]">
                   あなたのことを少しだけ
@@ -229,7 +229,7 @@ export default function SignupPage() {
           )}
 
           {step === 3 && (
-            <div className="space-y-5">
+            <div className="space-y-5 animate-step-in">
               <div>
                 <h2 className="text-xl font-medium text-[var(--color-warm-dark)]">
                   あと少しで完了です 🎉
