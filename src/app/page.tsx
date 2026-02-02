@@ -2,6 +2,59 @@
 
 import { useState } from "react";
 
+const FAQ_ITEMS = [
+  {
+    q: "本当に安全ですか？個人情報は大丈夫？",
+    a: "はい。全ての個人情報は暗号化して保存され、他のユーザーに公開されることはありません。本名や顔写真なしでも利用できます。また、全ユーザーに本人確認を実施し、なりすましを防止しています。",
+  },
+  {
+    q: "出会い系アプリとはどう違うの？",
+    a: "従来のアプリは「写真を見てスワイプ」が基本。よりそいは、AIとの会話からあなたの人柄を理解し、価値観の合う相手を一日一人だけ紹介します。外見ではなく「人としての相性」を重視する、全く新しいアプローチです。",
+  },
+  {
+    q: "写真がなくても使えますか？",
+    a: "はい、最初は写真なしで始められます。AIがあなたの会話から「あなたらしさ」を引き出し、プロフィールを作ります。写真はお互いに興味を持った段階で任意で公開できます。",
+  },
+  {
+    q: "AIは具体的に何をしてくれるの？",
+    a: "①日常会話からあなたの魅力を発見してプロフィールを作成 ②価値観の合う相手を毎日一人紹介 ③最初のメッセージのきっかけ作り ④デートの相談や不安な時の話し相手——あなたの婚活パートナーとして伴走します。",
+  },
+  {
+    q: "料金はかかりますか？",
+    a: "事前登録いただいた方は初月無料です。サービス開始後の料金プランは、オープン前にお知らせします。無理な課金や自動更新はありません。",
+  },
+  {
+    q: "40代じゃなくても使えますか？",
+    a: "よりそいは40代以上の方を主な対象としていますが、「じっくりと人と向き合いたい」という方なら年齢を問わず歓迎です。",
+  },
+];
+
+function FaqItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-[var(--color-cream-dark)] rounded-2xl overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full text-left px-5 md:px-6 py-4 md:py-5 flex items-center justify-between gap-4 hover:bg-[var(--color-cream)] transition-colors"
+      >
+        <span className="text-base md:text-lg text-[var(--color-warm-dark)] font-medium leading-relaxed">
+          {question}
+        </span>
+        <span className="text-[var(--color-warm)] text-xl shrink-0">
+          {open ? "−" : "＋"}
+        </span>
+      </button>
+      {open && (
+        <div className="px-5 md:px-6 pb-4 md:pb-5">
+          <p className="text-[var(--color-text-light)] leading-relaxed text-base">
+            {answer}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -274,6 +327,61 @@ export default function Home() {
                   <p className="text-[var(--color-text-light)] leading-relaxed text-base">{item.desc}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Voices / Social Proof */}
+      <section className="py-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-serif text-3xl md:text-4xl text-center text-[var(--color-warm-dark)] mb-4">
+            事前登録された方の声
+          </h2>
+          <p className="text-center text-[var(--color-text-light)] text-sm mb-12">
+            ※ 事前登録時のアンケートより（一部編集）
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                name: "K.S.さん",
+                age: "47歳・男性",
+                text: "マッチングアプリで疲弊していました。「毎日一人だけ」という仕組みが、自分のペースで向き合えそうで嬉しい。",
+              },
+              {
+                name: "M.T.さん",
+                age: "44歳・女性",
+                text: "出会い系は怖いと思っていたけど、写真なしで始められるのと、AIがサポートしてくれるのが安心感ある。",
+              },
+              {
+                name: "H.N.さん",
+                age: "52歳・男性",
+                text: "プロフィールを書くのが苦手だったので、話すだけでいいのは本当にありがたい。楽しみにしてます。",
+              },
+            ].map((voice, i) => (
+              <div key={i} className="bg-white p-6 rounded-2xl shadow-sm">
+                <p className="text-[var(--color-text)] leading-relaxed mb-4 text-base">
+                  「{voice.text}」
+                </p>
+                <div className="border-t border-[var(--color-cream-dark)] pt-3">
+                  <p className="text-sm text-[var(--color-warm-dark)] font-medium">{voice.name}</p>
+                  <p className="text-xs text-[var(--color-text-light)]">{voice.age}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-serif text-3xl md:text-4xl text-center text-[var(--color-warm-dark)] mb-12">
+            よくあるご質問
+          </h2>
+          <div className="space-y-4">
+            {FAQ_ITEMS.map((item, i) => (
+              <FaqItem key={i} question={item.q} answer={item.a} />
             ))}
           </div>
         </div>

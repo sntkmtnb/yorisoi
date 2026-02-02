@@ -13,7 +13,7 @@ export default function Article() {
           <a href="/" className="font-serif text-xl text-[var(--color-warm-dark)]">
             よりそい
           </a>
-          <a href="/blog" className="text-[var(--color-text-light)] hover:text-[var(--color-warm)]">
+          <a href="/blog" className="text-[var(--color-text-light)] hover:text-[var(--color-warm)] py-2 text-base">
             ← ブログ一覧
           </a>
         </div>
@@ -26,7 +26,7 @@ export default function Article() {
         </h1>
         <p className="text-[var(--color-text-light)] mb-12">2026年2月1日</p>
 
-        <div className="prose prose-lg max-w-none space-y-6 text-[var(--color-text)] leading-relaxed">
+        <div className="max-w-none space-y-6 text-[var(--color-text)] leading-[1.9] text-base md:text-lg">
           <p>
             40代で新しい出会いを探すこと。それは、勇気のいることです。
           </p>
