@@ -438,21 +438,39 @@ export default function Home() {
                 name: "K.S.さん",
                 age: "47歳・男性",
                 text: "マッチングアプリで疲弊していました。「毎日一人だけ」という仕組みが、自分のペースで向き合えそうで嬉しい。",
+                tag: "アプリ疲れ",
               },
               {
                 name: "M.T.さん",
                 age: "44歳・女性",
                 text: "出会い系は怖いと思っていたけど、写真なしで始められるのと、AIがサポートしてくれるのが安心感ある。",
+                tag: "安心感重視",
               },
               {
                 name: "H.N.さん",
                 age: "52歳・男性",
                 text: "プロフィールを書くのが苦手だったので、話すだけでいいのは本当にありがたい。楽しみにしてます。",
+                tag: "IT苦手",
+              },
+              {
+                name: "Y.K.さん",
+                age: "49歳・女性",
+                text: "離婚後3年。友人にも相談できなかったけど、AIになら素直に話せそう。第二の人生を楽しみたい。",
+                tag: "再出発",
+              },
+              {
+                name: "T.M.さん",
+                age: "55歳・男性",
+                text: "スマホ操作が苦手で不安でしたが、シンプルな画面で安心。ボタンを押すだけで返事できるのがいい。",
+                tag: "シンプル重視",
               },
             ].map((voice, i) => (
-              <FadeInSection key={i} delay={i * 150}>
-                <div className="bg-white p-6 rounded-2xl shadow-sm h-full">
-                  <p className="text-[var(--color-text)] leading-relaxed mb-4 text-base">
+              <FadeInSection key={i} delay={i * 100}>
+                <div className="bg-white p-5 md:p-6 rounded-2xl shadow-sm h-full">
+                  <span className="inline-block text-xs bg-[var(--color-cream)] text-[var(--color-warm-dark)] px-2 py-0.5 rounded-full mb-3">
+                    {voice.tag}
+                  </span>
+                  <p className="text-[var(--color-text)] leading-relaxed mb-4 text-sm md:text-base">
                     「{voice.text}」
                   </p>
                   <div className="border-t border-[var(--color-cream-dark)] pt-3">
@@ -648,7 +666,10 @@ export default function Home() {
           <p className="text-xs md:text-sm mt-4">
             お問い合わせ: <a href="mailto:hello@yorisoi.love" className="hover:text-white/80 underline">hello@yorisoi.love</a>
           </p>
-          <p className="text-xs md:text-sm mt-4">
+          <p className="text-xs mt-4 opacity-60">
+            運営: よりそい運営事務局 | 東京都
+          </p>
+          <p className="text-xs md:text-sm mt-2">
             © 2026 よりそい All rights reserved.
           </p>
         </div>

@@ -14,14 +14,13 @@ export default function SignupPage() {
     agreeTerms: false,
   });
 
-  const prefectures = [
-    "北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県",
-    "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県",
-    "新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県",
-    "静岡県", "愛知県", "三重県", "滋賀県", "京都府", "大阪府", "兵庫県",
-    "奈良県", "和歌山県", "鳥取県", "島根県", "岡山県", "広島県", "山口県",
-    "徳島県", "香川県", "愛媛県", "高知県", "福岡県", "佐賀県", "長崎県",
-    "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県",
+  const prefectureGroups = [
+    { label: "北海道・東北", items: ["北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県"] },
+    { label: "関東", items: ["茨城県", "栃木県", "群馬県", "埼玉県", "千葉県", "東京都", "神奈川県"] },
+    { label: "中部", items: ["新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県", "愛知県"] },
+    { label: "近畿", items: ["三重県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県"] },
+    { label: "中国・四国", items: ["鳥取県", "島根県", "岡山県", "広島県", "山口県", "徳島県", "香川県", "愛媛県", "高知県"] },
+    { label: "九州・沖縄", items: ["福岡県", "佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"] },
   ];
 
   const currentYear = new Date().getFullYear();
@@ -271,8 +270,12 @@ export default function SignupPage() {
                   className="w-full px-5 py-4 rounded-xl border border-[var(--color-cream-dark)] bg-[var(--color-cream)] focus:outline-none focus:ring-2 focus:ring-[var(--color-warm-light)] text-base"
                 >
                   <option value="">選択してください</option>
-                  {prefectures.map((p) => (
-                    <option key={p} value={p}>{p}</option>
+                  {prefectureGroups.map((group) => (
+                    <optgroup key={group.label} label={group.label}>
+                      {group.items.map((p) => (
+                        <option key={p} value={p}>{p}</option>
+                      ))}
+                    </optgroup>
                   ))}
                 </select>
               </div>
