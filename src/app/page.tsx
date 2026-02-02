@@ -258,17 +258,19 @@ export default function Home() {
               { label: "対象年齢", old: "20〜30代が中心", new: "40代以上に特化" },
               { label: "サポート", old: "なし or 問い合わせフォーム", new: "AIが24時間いつでも味方" },
             ].map((row, i) => (
-              <div key={i} className="grid grid-cols-1 md:grid-cols-[140px_1fr_1fr] gap-2 md:gap-4 p-4 md:p-5 rounded-xl bg-[var(--color-cream)]">
-                <p className="font-medium text-[var(--color-warm-dark)] text-sm md:text-base">{row.label}</p>
-                <div className="flex items-start gap-2">
-                  <span className="text-[var(--color-text-light)] shrink-0">❌</span>
-                  <p className="text-sm md:text-base text-[var(--color-text-light)]">{row.old}</p>
+              <FadeInSection key={i} delay={i * 80}>
+                <div className="grid grid-cols-1 md:grid-cols-[140px_1fr_1fr] gap-2 md:gap-4 p-4 md:p-5 rounded-xl bg-[var(--color-cream)]">
+                  <p className="font-medium text-[var(--color-warm-dark)] text-sm md:text-base">{row.label}</p>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[var(--color-text-light)] shrink-0">❌</span>
+                    <p className="text-sm md:text-base text-[var(--color-text-light)]">{row.old}</p>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-[var(--color-warm)] shrink-0">✅</span>
-                  <p className="text-sm md:text-base text-[var(--color-warm-dark)] font-medium">{row.new}</p>
+                  <div className="flex items-start gap-2">
+                    <span className="text-[var(--color-warm)] shrink-0">✅</span>
+                    <p className="text-sm md:text-base text-[var(--color-warm-dark)] font-medium">{row.new}</p>
+                  </div>
                 </div>
-              </div>
+              </FadeInSection>
             ))}
           </div>
         </div>

@@ -41,7 +41,17 @@ export default function Article() {
         <h1 className="font-serif text-3xl md:text-4xl text-[var(--color-warm-dark)] mt-2 mb-4">
           40代がマッチングアプリで失敗する本当の理由
         </h1>
-        <p className="text-[var(--color-text-light)] mb-12">2026年2月1日</p>
+        <p className="text-[var(--color-text-light)] mb-8">2026年2月1日 · 📖 4分で読めます</p>
+
+        {/* 目次 */}
+        <nav className="bg-white rounded-2xl p-5 md:p-6 mb-10">
+          <p className="text-sm font-medium text-[var(--color-warm-dark)] mb-3">📋 この記事の内容</p>
+          <ol className="space-y-2 text-sm md:text-base text-[var(--color-text-light)] list-decimal list-inside">
+            <li>40代のマッチングアプリ事情</li>
+            <li>失敗する3つの本当の理由</li>
+            <li>40代に合った出会い方とは</li>
+          </ol>
+        </nav>
 
         <div className="max-w-none space-y-6 text-[var(--color-text)] leading-[1.9] text-base md:text-lg">
           <p>
