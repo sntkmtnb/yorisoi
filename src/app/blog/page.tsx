@@ -1,5 +1,7 @@
 "use client";
 
+import FadeInSection from "@/components/FadeInSection";
+
 const articles = [
   {
     slug: "over-40-dating-guide",
@@ -40,12 +42,12 @@ export default function BlogPage() {
         </p>
 
         <div className="space-y-6 md:space-y-8">
-          {articles.map((article) => (
-            <a
-              key={article.slug}
-              href={`/blog/${article.slug}`}
-              className="block bg-white rounded-2xl p-5 md:p-6 hover:shadow-md transition-shadow"
-            >
+          {articles.map((article, i) => (
+            <FadeInSection key={article.slug} delay={i * 100}>
+              <a
+                href={`/blog/${article.slug}`}
+                className="block bg-white rounded-2xl p-5 md:p-6 hover:shadow-md transition-shadow"
+              >
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-xs md:text-sm text-[var(--color-warm)] font-medium bg-[var(--color-cream)] px-2.5 py-0.5 rounded-full">
                   {article.category}
@@ -63,7 +65,8 @@ export default function BlogPage() {
               <p className="text-xs md:text-sm text-[var(--color-text-light)] mt-3">
                 {article.date}
               </p>
-            </a>
+              </a>
+            </FadeInSection>
           ))}
         </div>
 
