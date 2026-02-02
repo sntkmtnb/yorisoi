@@ -327,9 +327,15 @@ export default function Home() {
             よりそいに登録した瞬間から、AIがあなたの話を聞き、<br className="hidden md:block" />
             あなたを理解し、あなたに合った人を探し始めます。
           </p>
-          <p className="text-xl md:text-2xl leading-relaxed text-[var(--color-accent-soft)] font-medium">
+          <p className="text-xl md:text-2xl leading-relaxed text-[var(--color-accent-soft)] font-medium mb-10">
             あなたの人生に、もう一度光を。
           </p>
+          <a
+            href="#waitlist"
+            className="inline-block bg-white/20 hover:bg-white/30 text-white px-8 py-4 rounded-full text-base md:text-lg transition-all border border-white/30"
+          >
+            事前登録する（無料）
+          </a>
         </div>
       </section>
 
@@ -375,6 +381,16 @@ export default function Home() {
                 </div>
               </FadeInSection>
             ))}
+          </div>
+
+          {/* Mid-page CTA */}
+          <div className="text-center mt-12">
+            <a
+              href="#waitlist"
+              className="inline-block bg-[var(--color-warm)] hover:bg-[var(--color-warm-dark)] text-white px-8 py-4 rounded-full text-base md:text-lg transition-all hover:shadow-lg"
+            >
+              事前登録する（無料）→
+            </a>
           </div>
         </div>
       </section>
