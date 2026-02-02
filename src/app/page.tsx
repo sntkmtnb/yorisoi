@@ -484,8 +484,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Reassurance Section - targeted at S2 and S4 */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-serif text-2xl md:text-3xl text-center text-[var(--color-warm-dark)] mb-10">
+            不安ですよね。わかります。
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                worry: "個人情報が漏れたらどうしよう…",
+                answer: "全データを暗号化。実名・顔写真は一切不要です。",
+              },
+              {
+                worry: "変な人からメッセージが来たら…",
+                answer: "全員本人確認済み。不快な体験は即ブロック＋運営対応。",
+              },
+              {
+                worry: "周りにバレたくない…",
+                answer: "SNS連携なし。知り合いに表示されない仕組みです。",
+              },
+              {
+                worry: "使い方がわからなかったら…",
+                answer: "AIが24時間サポート。操作に困ったらAIに聞くだけ。",
+              },
+            ].map((item, i) => (
+              <FadeInSection key={i} delay={i * 80}>
+                <div className="flex items-start gap-4 p-4 md:p-5 rounded-xl">
+                  <div className="shrink-0 w-8 h-8 rounded-full bg-[var(--color-cream)] flex items-center justify-center text-sm">😟</div>
+                  <div className="flex-1">
+                    <p className="text-[var(--color-text-light)] text-sm md:text-base">{item.worry}</p>
+                    <p className="text-[var(--color-warm-dark)] font-medium text-sm md:text-base mt-1">→ {item.answer}</p>
+                  </div>
+                </div>
+              </FadeInSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-3xl md:text-4xl text-center text-[var(--color-warm-dark)] mb-12">
             よくあるご質問
