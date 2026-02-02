@@ -120,6 +120,12 @@ input, select, textarea {
   animation: scale-in 0.4s ease-out forwards;
 }
 
+/* ボタンのタップフィードバック */
+button:active:not(:disabled),
+a[class*="bg-"]:active {
+  transform: scale(0.98);
+}
+
 /* スムーススクロール */
 html {
   scroll-behavior: smooth;

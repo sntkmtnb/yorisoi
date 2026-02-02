@@ -482,15 +482,26 @@ export default function Home() {
           </p>
 
           {submitted ? (
-            <div className="bg-white p-8 rounded-3xl shadow-sm">
+            <div className="bg-white p-8 rounded-3xl shadow-sm animate-scale-in">
               <p className="text-2xl mb-2">🌸</p>
               <p className="text-xl text-[var(--color-warm-dark)] font-medium mb-2">
                 ありがとうございます
               </p>
-              <p className="text-[var(--color-text-light)]">
-                オープン時にお知らせします。<br />
+              <p className="text-[var(--color-text-light)] leading-relaxed mb-4">
+                オープン時にメールでお知らせします。<br />
                 あなたとの出会いを、楽しみにしています。
               </p>
+              <div className="border-t border-[var(--color-cream-dark)] pt-4 mt-4">
+                <p className="text-sm text-[var(--color-text-light)] mb-3">
+                  待っている間に、ブログを読んでみませんか？
+                </p>
+                <a
+                  href="/blog"
+                  className="inline-block text-[var(--color-warm)] hover:text-[var(--color-warm-dark)] text-sm underline underline-offset-4"
+                >
+                  ブログを読む →
+                </a>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white p-6 md:p-8 rounded-3xl shadow-sm space-y-5">
