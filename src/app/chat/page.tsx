@@ -159,6 +159,10 @@ export default function ChatPage() {
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto px-3 md:px-4 py-6 space-y-4">
+        {/* Date indicator */}
+        <p className="text-center text-xs text-[var(--color-text-light)]/60 py-2">
+          今日の会話
+        </p>
         {messages.map((msg, i) => (
           <div
             key={i}

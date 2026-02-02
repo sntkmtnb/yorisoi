@@ -516,7 +516,7 @@ export default function Home() {
       <section id="waitlist" className="py-24 px-6">
         <div className="max-w-xl mx-auto text-center">
           <h2 className="font-serif text-3xl md:text-4xl text-[var(--color-warm-dark)] mb-6">
-            事前登録
+            新しい一歩を、踏み出してみませんか？
           </h2>
           <p className="text-[var(--color-text-light)] text-base md:text-lg mb-10">
             まもなくオープン。事前登録いただいた方は、<br />
